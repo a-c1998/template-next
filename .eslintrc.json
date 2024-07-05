@@ -1,3 +1,49 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:@tanstack/eslint-plugin-query/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:tailwindcss/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "plugins": ["import"],
+  "rules": {
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "external", "internal", "sibling"],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc"
+        }
+      }
+    ],
+    "react/jsx-curly-brace-presence": [
+      "error",
+      { "props": "never", "children": "never", "propElementValues": "always" }
+    ],
+    "react/self-closing-comp": ["error"],
+    "react/button-has-type": [
+      "error",
+      {
+        "reset": false
+      }
+    ],
+    "@typescript-eslint/no-unnecessary-condition": "error",
+    "curly": ["error", "all"],
+    "react/jsx-no-useless-fragment": ["error"],
+    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/no-explicit-any": "error",
+    "@typescript-eslint/keyword-spacing": ["error", { "after": true }],
+    "eqeqeq": "error",
+    "no-duplicate-imports": "error",
+    "react/no-array-index-key": ["warn"],
+    "dot-notation": "error",
+    "react/no-unused-prop-types": "error",
+    "no-console": "warn"
+  }
 }
